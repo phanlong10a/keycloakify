@@ -1,0 +1,126 @@
+body {
+    font-family: Montserrat, sans-serif;
+}
+.kcFormCardClass {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0 !important;
+    border-radius: 7px;
+}
+
+.card-pf {
+    background-color: rgba(255, 255, 255, 0.93);
+    max-width: unset;
+}
+
+.kcFormCardClass #kc-content {
+    padding: 2.5rem;
+    overflow: auto;
+    border-radius: 7px;
+}
+
+.login-title {
+    color: #01509a;
+    margin-bottom: 14px;
+}
+
+@media (min-width: 360px) {
+    .kcFormCardClass #kc-content {
+        padding: 40px 20px !important;
+        max-height: calc(100vh - 3rem);
+    }
+    #kc-content-wrapper {
+        width: 282px;
+    }
+}
+
+@media (min-width: 768px) {
+    .kcFormCardClass #kc-content {
+        padding: 40px !important;
+        max-height: calc(100vh - 3rem);
+    }
+    #kc-content-wrapper {
+        width: 460px;
+    }
+    .login-title span {
+        margin-bottom: 0.875rem;
+        font-size: 26px;
+        margin-bottom: 14px;
+        font-weight: 700;
+        line-height: 1.9375rem;
+    }
+}
+
+.kcSignUpClass {
+    display: none;
+}
+
+.ant-form-item-label span {
+    font-size: 14px;
+    color: #01509a;
+    font-weight: 500;
+}
+
+.ant-input {
+    position: relative;
+    display: inline-block;
+    min-width: 0;
+    padding: 11.4px 11px;
+    font-size: 16px;
+    background-image: none;
+    border-radius: 7px;
+    transition: all 0.3s;
+    background: transparent !important;
+}
+.ant-input-affix-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    padding: 11.4px 11px;
+    font-size: 16px;
+    line-height: 1.5715;
+    background-image: none;
+    border-radius: 7px;
+    transition: all 0.3s;
+    display: inline-flex;
+    background: transparent !important;
+}
+.ant-input-affix-wrapper input {
+    height: 25px;
+}
+#kc-login {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 16px;
+    color: #fff;
+    border-color: rgb(1, 80, 154);
+    background: rgb(1, 80, 154);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    position: relative;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    height: 50px;
+    padding: 11.4px 15px;
+    border-radius: 7px;
+}
