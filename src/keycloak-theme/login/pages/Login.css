@@ -42,7 +42,7 @@ body {
 @media (min-width: 360px) {
     .kcFormCardClass #kc-content {
         padding: 40px 20px !important;
-        max-height: calc(100vh - 3rem);
+        max-height: calc(100vh - 48px);
     }
     #kc-content-wrapper {
         width: 282px;
@@ -52,7 +52,7 @@ body {
 @media (min-width: 768px) {
     .kcFormCardClass #kc-content {
         padding: 40px !important;
-        max-height: calc(100vh - 3rem);
+        max-height: calc(100vh - 48px);
     }
     #kc-content-wrapper {
         width: 460px;
@@ -123,4 +123,178 @@ body {
     height: 50px;
     padding: 11.4px 15px;
     border-radius: 7px;
+}
+
+.ant-btn.ant-btn-primary {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 16px;
+    color: #fff;
+    border-color: rgb(1, 80, 154);
+    background: rgb(1, 80, 154);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    position: relative;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    height: 50px;
+    padding: 11.4px 15px;
+    border-radius: 7px;
+}
+.ant-btn.ant-btn-default {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 16px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    position: relative;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid #bec0c6;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    user-select: none;
+    height: 50px;
+    padding: 11.4px 15px;
+    border-radius: 7px;
+}
+
+.ant-notification-notice {
+    width: 576px;
+    padding: 32px;
+    min-height: 96px;
+}
+
+.ant-menu-inline,
+.ant-menu-vertical {
+    border-right: 0;
+}
+
+.ant-notification-notice .ant-notification-notice-with-icon .ant-notification-notice-message {
+    margin-bottom: 0;
+    margin-left: 45px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.ant-notification-notice .ant-notification-notice-with-icon .ant-notification-notice-description {
+    margin-left: 70px;
+    margin-top: 0;
+}
+
+.ant-notification-notice .ant-notification-notice-icon {
+    font-size: 45px;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.ant-notification-notice .ant-notification-notice-close {
+    top: 20px;
+    right: 20px;
+}
+
+.ant-notification-notice .ant-notification-notice-close-x {
+    display: flex;
+    font-size: 15px;
+}
+/*  */
+.ant-notification-notice .notification-without-description .ant-notification-notice-close {
+    top: 30px;
+}
+.ant-notification-notice
+    .notification-without-description
+    .ant-notification-notice-with-icon
+    .ant-notification-notice-description {
+    margin-top: 10px;
+}
+
+.ant-notification-notice .title {
+    font-size: 24px;
+    height: 48px;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+.ant-notification-notice .title.title-only {
+    color: #404040;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 12px;
+    font-weight: 700;
+}
+
+.ant-notification-notice .description {
+    color: #404040;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.ant-notification-notice.ant-notification-notice-success {
+    border: 1px solid #30af5b;
+    background: #effff4;
+}
+.ant-notification-notice.ant-notification-notice-success .title {
+    color: #30af5b;
+}
+
+.ant-notification-notice.ant-notification-notice-info {
+    border: 1px solid #01509a;
+    background: #d7ebff;
+}
+.ant-notification-notice.ant-notification-notice-info .title {
+    color: #01509a;
+}
+
+.ant-notification-notice.ant-notification-notice-warning {
+    border: 1px solid #ffb155;
+    background: #fff4e7;
+}
+
+.ant-notification-notice.ant-notification-notice-warning .title {
+    color: #ffb155;
+}
+
+.ant-notification-notice.ant-notification-notice-error {
+    border: 1px solid #ff5252;
+    background: #ffe2e2;
+}
+.ant-notification-notice.ant-notification-notice-error .title {
+    color: #ff5252;
+}
+
+.ant-notification-notice .success-icon {
+    color: #30af5b;
+}
+
+.ant-notification-notice .info-icon {
+    color: #01509a;
+}
+
+.ant-notification-notice .warning-icon {
+    color: #ffb155;
+}
+
+.ant-notification-notice .error-icon {
+    color: #ff5252;
+}
+
+.check-circle-outlined-icon {
+    font-size: 50px;
+    /* color: blue; */
+}
+.text-content .active-success {
+    margin-top: 64px;
+    margin-bottom: 48px;
+    color: #4284f5;
+    font-size: 16px;
+    font-weight: 500;
 }

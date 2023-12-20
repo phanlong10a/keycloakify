@@ -22,6 +22,9 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
       locale: {
         currentLanguageTag: "en",
       },
+      login:{
+        username: 'resetHmac'
+      }
     },
     {
       pageId: "my-extra-page-2.ftl",

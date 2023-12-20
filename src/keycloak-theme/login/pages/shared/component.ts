@@ -135,3 +135,46 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
     border-color: #30af5b;
   }
 `;
+
+export const ForgotPasswordText = styled.span`
+  color: #9a9b9f;
+  font-size: 14px;
+  text-decoration: underline;
+`;
+
+export const ActionsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`;
+
+export const WrapGoogleAuthencator = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > img {
+    width: 200px;
+  }
+  > input {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  > .wrap-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const WrapGoogleAuthencatorSuccess = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > .text-content {
+    margin-top: 64px;
+    margin-bottom: 48px;
+    color: #4284f5;
+  }
+`;

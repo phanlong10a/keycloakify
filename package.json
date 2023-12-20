@@ -28,6 +28,7 @@
     "keywords": [],
     "dependencies": {
         "antd": "4.24.15",
+        "axios": "^1.6.2",
         "evt": "^2.4.15",
         "keycloakify": "^9.1.4",
         "oidc-spa": "^2.2.0",
