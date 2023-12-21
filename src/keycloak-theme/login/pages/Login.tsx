@@ -16,7 +16,8 @@ export interface LoginRequest {
     password?: string;
     passcode?: string;
 }
-const REACT_APP_ENDPOINT_URL = 'http://localhost:8001'
+// const REACT_APP_ENDPOINT_URL = 'http://localhost:8001'
+const REACT_APP_ENDPOINT_URL = 'https://cms-chatbot-be.gemvietnam.com'
 const REACT_APP_AMS_URL = 'http://localhost:3001'
 
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
