@@ -19,9 +19,6 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
   mockData: [
     {
       pageId: "login.ftl",
-      locale: {
-        currentLanguageTag: "en",
-      },
       login:{
         username: 'resetHmac'
       }

@@ -1,19 +1,10 @@
 import { createUseI18n } from "keycloakify/login";
 
 export const { useI18n } = createUseI18n({
-  // NOTE: Here you can override the default i18n messages
-  // or define new ones that, for example, you would have
-  // defined in the Keycloak admin UI for UserProfile
-  // https://user-images.githubusercontent.com/6702424/182050652-522b6fe6-8ee5-49df-aca3-dba2d33f24a5.png
   en: {
-    alphanumericalCharsOnly: "Only alphanumerical characters",
-    gender: "Gender",
-    // Here we overwrite the default english value for the message "doForgotPassword"
-    // that is "Forgot Password?" see: https://github.com/InseeFrLab/keycloakify/blob/f0ae5ea908e0aa42391af323b6d5e2fd371af851/src/lib/i18n/generated_messages/18.0.1/login/en.ts#L17
-    doForgotPassword: "I forgot my password",
     loginTitle: "Login",
     requiredField: "This field is required!",
-    maxLength: "This field must no more than {{count}} characters",
+    maxLength: "This field must no more than 255 characters",
     notValidEmail: "Email not formatted correctly",
     invalidUserMessage: "Invalid username or password",
     error500: "Internal Server Error",
@@ -31,6 +22,38 @@ export const { useI18n } = createUseI18n({
     buttonNo: "No",
     successfullyActived: "Successfully Activated!",
     buttonDone: "Done",
+    forgotPassword: "Forgot password",
+    forgotHMAC: "Did you loss the QR Code",
+    unlockAccount: "Unlock account",
+    password: "Password",
+    email: "Email",
+  },
+  jp: {
+    loginTitle: "ログイン",
+    requiredField: "このフィールドは必須です。",
+    maxLength: "このフィールドは 255 文字を超えないように指定してください。",
+    notValidEmail: "メールの形式が正しくありません。",
+    invalidUserMessage: "Invalid username or password",
+    error500: "Internal Server Error",
+    authPasscode: "G-Auth パスコード ",
+    passcode: "パスコード",
+    notRegisterHMAC: "Google認証サービスは登録していません。",
+    googleAuthentication: "Google 認証システム",
+    scanQRCode: "Google認証アプリで本QRコードをスキャンしてください。",
+    scanQRCodeContinue: "コードをフィールドに入力してください。",
+    buttonSendConfirmationCode: "有効",
+    buttonCancel: "キャンセル",
+    titleConfirmation: "確認",
+    contentCancelConfirm: "このアクションをキャンセルしますか？",
+    buttonYes: "はい",
+    buttonNo: "いいえ",
+    successfullyActived: "有効化に成功しました。",
+    buttonDone: "完了",
+    forgotPassword: "パスワードをお忘れですか？",
+    forgotHMAC: "QRコードをお忘れですか",
+    unlockAccount: "アカウントのロックを解除",
+    password: "パスワード",
+    email: "メール",
   },
 });
 
