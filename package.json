@@ -3,6 +3,9 @@
     "homepage": "https://starter.keycloakify.dev",
     "version": "5.0.5",
     "description": "A starter/demo project for keycloakify",
+    "engines": {
+      "node": ">=18.12.1"
+    },
     "repository": {
         "type": "git",
         "url": "git://github.com/codegouvfr/keycloakify-starter.git"

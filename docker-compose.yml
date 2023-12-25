@@ -1,0 +1,43 @@
+version: '3'
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.3
+    # image: quay.io/keycloak/keycloak:16.1.1
+    container_name: keycloak
+    ports:
+      - 8080:8080
+      # - 8002:8080
+      # - 9443:8443
+    environment:
+      KEYCLOAK_ADMIN: admin
+      # KEYCLOAK_ADMIN_PASSWORD: w65DKtEOa8
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: 172.16.13.31
+      KC_HOSTNAME_PORT: 8080
+      # KC_HOSTNAME_PORT: 8002
+      # KC_HOSTNAME_STRICT_BACKCHANNEL: true
+      # KC_HOSTNAME_STRICT: false
+      # KC_HTTP_ENABLED: true
+      # KC_FEATURES: token-exchange,admin-fine-grained-authz,preview
+      KC_FEATURES: token-exchange,declarative-user-profile
+      KC_DB: mysql
+      # KC_DB_URL: jdbc:mysql://172.16.10.105:3306/umematsu_keycloak2
+      KC_DB_URL: jdbc:mysql://stg-ams-db-instance-1.cczy0rgqlowe.ap-northeast-1.rds.amazonaws.com/umematsu_keycloak
+      KC_DB_USERNAME: admin
+      # KC_DB_USERNAME: root
+      KC_DB_PASSWORD: 0j7YoRqL9w2N8qp
+      KC_LOG_LEVEL: info
+      # KC_PROXY: edge
+    volumes:
+      - "./target/keycloakify-starter-keycloak-theme-5.0.5.jar:/opt/keycloak/providers/keycloakify-starter-keycloak-theme-5.0.5.jar"
+      - "./src/main/resources/theme/account-v1:/opt/keycloak/themes/account-v1:rw"
+      - "./src/main/resources/theme/keycloakify-starter:/opt/keycloak/themes/keycloakify-starter:rw"
+      - "./src/main/resources/theme/keycloakify-starter-variant-1:/opt/keycloak/themes/keycloakify-starter-variant-1:rw"
+      - "./src/main/resources/theme/keycloakify-starter-variant-1_retrocompat:/opt/keycloak/themes/keycloakify-starter-variant-1_retrocompat:rw"
+      - "./src/main/resources/theme/keycloakify-starter_retrocompat:/opt/keycloak/themes/keycloakify-starter_retrocompat:rw"
+    command: start-dev
+    # command: start --auto-build
+    # entrypoint: ["/opt/keycloak/bin/kc.sh", "start"]
+    # command: start --db mysql --db-url jdbc:mysql://0.0.0.0:3306/app_keycloak --db-username root --db-password root
+  #   networks:
+  #     - ams-network
