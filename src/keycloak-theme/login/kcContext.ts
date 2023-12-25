@@ -19,9 +19,6 @@ export const { getKcContext } = createGetKcContext<KcContextExtension>({
   mockData: [
     {
       pageId: "login.ftl",
-      login:{
-        username: 'resetHmac'
-      }
     },
     {
       pageId: "my-extra-page-2.ftl",
