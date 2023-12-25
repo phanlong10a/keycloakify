@@ -30,13 +30,22 @@ export default function KcApp(props: { kcContext: KcContext; }) {
 
     const { kcContext } = props;
 
-    const i18n = useI18n({ kcContext });
+    const params = new URLSearchParams(document.location.search).get('ui_locales');
 
+    const i18n = useI18n({ kcContext: {
+        //@ts-ignore
+        locale:{
+            ...kcContext.locale,
+            currentLanguageTag: params ? params : 'en',
+        }
+    } });
     if (i18n === null) {
         //NOTE: Text resources for the current language are still being downloaded, we can't display anything yet.
         //We could display a loading progress but it's usually a matter of milliseconds.
         return null;
     }
+
+    // i18n.changeLocale('jp')
 
     return (
         <Suspense>
