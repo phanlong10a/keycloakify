@@ -29,7 +29,6 @@ const classes: PageProps<any, any>["classes"] = {
 export default function KcApp(props: { kcContext: KcContext; }) {
 
     const { kcContext } = props;
-
     const params = new URLSearchParams(document.location.search).get('ui_locales');
 
     const i18n = useI18n({ kcContext: {

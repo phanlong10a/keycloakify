@@ -1,95 +1,96 @@
 {
-    "name": "keycloakify-starter",
-    "homepage": "https://starter.keycloakify.dev",
-    "version": "5.0.5",
-    "description": "A starter/demo project for keycloakify",
-    "engines": {
-      "node": ">=18.12.1"
+  "name": "keycloakify-starter",
+  "homepage": "https://starter.keycloakify.dev",
+  "version": "5.0.5",
+  "description": "A starter/demo project for keycloakify",
+  "engines": {
+    "node": ">=18.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codegouvfr/keycloakify-starter.git"
+  },
+  "scripts": {
+    "postinstall": "copy-keycloak-resources-to-public",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-keycloak-theme": "yarn build && keycloakify",
+    "storybook": "start-storybook -p 6006"
+  },
+  "keycloakify": {
+    "themeName": [
+      "keycloakify-starter",
+      "keycloakify-starter-variant-1"
+    ],
+    "extraThemeProperties": [
+      "REACT_APP_ENDPOINT_URL=https://cms-chatbot-be.gemvietnam.com",
+      "REACT_APP_AMS_URL=http://localhost:3000"
+    ]
+  },
+  "author": "u/garronej",
+  "license": "MIT",
+  "keywords": [],
+  "dependencies": {
+    "antd": "4.24.15",
+    "axios": "^1.6.2",
+    "evt": "^2.4.15",
+    "keycloakify": "^9.1.4",
+    "oidc-spa": "^2.2.0",
+    "powerhooks": "^0.26.8",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "styled-components": "^6.1.1",
+    "tsafe": "^1.6.0",
+    "typeface-montserrat": "^1.1.13"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^6.5.16",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^15.3.1",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
+    "react-scripts": "5.0.1",
+    "typescript": "~4.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "off",
+      "@typescript-eslint/no-redeclare": "off",
+      "no-labels": "off"
     },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/codegouvfr/keycloakify-starter.git"
-    },
-    "scripts": {
-        "postinstall": "copy-keycloak-resources-to-public",
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "build-keycloak-theme": "yarn build && keycloakify",
-        "storybook": "start-storybook -p 6006"
-    },
-    "keycloakify": {
-        "themeName": [
-            "keycloakify-starter",
-            "keycloakify-starter-variant-1"
-        ],
-        "extraThemeProperties": [
-            "foo=bar"
-        ]
-    },
-    "author": "u/garronej",
-    "license": "MIT",
-    "keywords": [],
-    "dependencies": {
-        "antd": "4.24.15",
-        "axios": "^1.6.2",
-        "evt": "^2.4.15",
-        "keycloakify": "^9.1.4",
-        "oidc-spa": "^2.2.0",
-        "powerhooks": "^0.26.8",
-        "react": "18.1.0",
-        "react-dom": "18.1.0",
-        "styled-components": "^6.1.1",
-        "tsafe": "^1.6.0",
-        "typeface-montserrat": "^1.1.13"
-    },
-    "devDependencies": {
-        "@storybook/addon-actions": "^6.5.16",
-        "@storybook/addon-essentials": "^6.5.16",
-        "@storybook/addon-interactions": "^6.5.16",
-        "@storybook/addon-links": "^6.5.16",
-        "@storybook/builder-webpack5": "^6.5.16",
-        "@storybook/manager-webpack5": "^6.5.16",
-        "@storybook/node-logger": "^6.5.16",
-        "@storybook/preset-create-react-app": "^4.1.2",
-        "@storybook/react": "^6.5.16",
-        "@storybook/testing-library": "^0.0.13",
-        "@types/node": "^15.3.1",
-        "@types/react": "18.0.9",
-        "@types/react-dom": "18.0.4",
-        "react-scripts": "5.0.1",
-        "typescript": "~4.7.0"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
         ],
         "rules": {
-            "react-hooks/exhaustive-deps": "off",
-            "@typescript-eslint/no-redeclare": "off",
-            "no-labels": "off"
-        },
-        "overrides": [
-            {
-                "files": [
-                    "**/*.stories.*"
-                ],
-                "rules": {
-                    "import/no-anonymous-default-export": "off"
-                }
-            }
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    }
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

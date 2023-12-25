@@ -23,8 +23,8 @@ export interface LoginRequest {
   passcode?: string;
 }
 // const REACT_APP_ENDPOINT_URL = 'http://localhost:8001'
-const REACT_APP_ENDPOINT_URL = "https://cms-chatbot-be.gemvietnam.com";
-const REACT_APP_AMS_URL = "http://localhost:3001";
+// const REACT_APP_ENDPOINT_URL = "https://cms-chatbot-be.gemvietnam.com";
+// const REACT_APP_AMS_URL = "http://localhost:3001";
 
 export default function Login(
   props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>
@@ -57,7 +57,8 @@ export default function Login(
   const checkLogin = async (values: LoginRequest, action: any) => {
     try {
       const { data } = await axios.post(
-        REACT_APP_ENDPOINT_URL + `/auth/login/${action}`,
+        //@ts-ignore
+        kcContext.properties.REACT_APP_ENDPOINT_URL + `/auth/login/${action}`,
         {
           ...values,
         }
@@ -76,9 +77,13 @@ export default function Login(
     const paramsRequest = params.replace("resetHmac=", "");
     setParamReset(paramsRequest);
     axios
-      .post(REACT_APP_ENDPOINT_URL + `/auth/get-new-HMAC`, {
-        key: paramsRequest,
-      })
+      .post(
+        // @ts-ignore
+        kcContext.properties.REACT_APP_ENDPOINT_URL + `/auth/get-new-HMAC`,
+        {
+          key: paramsRequest,
+        }
+      )
       .then((result: any) => {
         if (result?.data?.data) {
           setQrCode(result?.data?.data.qrCode);
@@ -109,7 +114,9 @@ export default function Login(
     if (labelCheck && !!isConfirmForward) {
       try {
         const result = await axios.post(
-          REACT_APP_ENDPOINT_URL + `/auth/submit-forgot-HMAC`,
+          // @ts-ignore
+          kcContext.properties.REACT_APP_ENDPOINT_URL +
+            `/auth/submit-forgot-HMAC`,
           {
             key: paramReset,
             passCode: loginRequest?.passcode,
@@ -351,17 +358,20 @@ export default function Login(
                 </Button>
               </div>
               <ActionsWrapper>
-                <a href={`${REACT_APP_AMS_URL}/forgot-password`}>
+                {/* @ts-ignore */}
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}>
                   <ForgotPasswordText>
                     {msgStr("forgotPassword")}
                   </ForgotPasswordText>
                 </a>
-                <a href={`${REACT_APP_AMS_URL}/forgot-hmac`}>
+                {/* @ts-ignore */}
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-hmac`}>
                   <ForgotPasswordText>
                     {msgStr("forgotHMAC")}
                   </ForgotPasswordText>
                 </a>
-                <a href={`${REACT_APP_AMS_URL}/unlock`}>
+                {/* @ts-ignore */}
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/unlock`}>
                   <ForgotPasswordText>
                     {msgStr("unlockAccount")}
                   </ForgotPasswordText>
