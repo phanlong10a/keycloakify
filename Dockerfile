@@ -15,12 +15,9 @@ COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-start
 COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter-variant-1_retrocompat /opt/keycloak/themes/keycloakify-starter-variant-1_retrocompat
 COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter_retrocompat /opt/keycloak/themes/keycloakify-starter_retrocompat
 
-CMD start-dev --features=declarative-user-profile
+CMD start-dev
 
-# COPY --from=build /app/build_keycloak/src/main/resources/theme/account-v1 "/opt/keycloak/themes/account-v1":rw
-# COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter "/opt/keycloak/themes/keycloakify-starter":rw
-# COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter-variant-1 "/opt/keycloak/themes/keycloakify-starter-variant-1":rw
-# COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter-variant-1_retrocompat "/opt/keycloak/themes/keycloakify-starter-variant-1_retrocompat":rw
-# COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter_retrocompat "/opt/keycloak/themes/keycloakify-starter_retrocompat":rw
+# docker build -f Dockerfile -t haikc:v0.0.1 .
+# docker run -p 8080:8080 haikc:v0.0.1 start-dev
 
-# CMD start-dev --features=declarative-user-profile
+
