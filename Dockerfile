@@ -1,10 +1,9 @@
-# docker build -f Dockerfile -t haikc:v0.0.1 .
 FROM node:18-alpine as build
 WORKDIR /app
-
+RUN apk update && apk add maven
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
-# COPY . .
+COPY . .
 RUN yarn build-keycloak-theme
 
 FROM quay.io/keycloak/keycloak:23.0.3
@@ -25,5 +24,3 @@ CMD start-dev --features=declarative-user-profile
 # COPY --from=build /app/build_keycloak/src/main/resources/theme/keycloakify-starter_retrocompat "/opt/keycloak/themes/keycloakify-starter_retrocompat":rw
 
 # CMD start-dev --features=declarative-user-profile
-
-
