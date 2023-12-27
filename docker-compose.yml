@@ -1,7 +1,7 @@
 version: '3'
 services:
   keycloak:
-    image: haikc:v0.0.1
+    image: ams-keycloak:latest
     # image: quay.io/keycloak/keycloak:23.0.3
     container_name: keycloak123
     ports:
