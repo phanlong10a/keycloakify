@@ -55,12 +55,16 @@ export default function Login(
   const [paramReset, setParamReset] = useState<string | null>(null);
 
   const checkLogin = async (values: LoginRequest, action: any) => {
+    const clientId = new URLSearchParams(document.location.search).get(
+      "client_id"
+    );
     try {
       const { data } = await axios.post(
         //@ts-ignore
         kcContext.properties.REACT_APP_ENDPOINT_URL + `/auth/login/${action}`,
         {
           ...values,
+          clientId
         }
       );
       return data;
@@ -359,7 +363,8 @@ export default function Login(
               </div>
               <ActionsWrapper>
                 {/* @ts-ignore */}
-                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}>
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}
+                >
                   <ForgotPasswordText>
                     {msgStr("forgotPassword")}
                   </ForgotPasswordText>
