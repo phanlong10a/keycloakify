@@ -139,40 +139,31 @@ export default function Login(
     }
     setIsLoginButtonDisabled(true);
     try {
-      // const response = await checkLogin(values, action);
-      // const { accessToken, qrCode } = response.data;
-      // if (qrCode) {
-      //   notification.error({ message: msgStr("notRegisterHMAC") });
-      //   setLoginRequest(values);
-      //   setQrCode(qrCode);
-      //   setIsOpenGoogleAuthenticator(true);
-      //   return;
-      // }
-      // if (isConfirmForward) {
-      //   setIsVerified(true);
-      //   setIsOpenGoogleAuthenticator(false);
-      //   return setIsOpenGoogleAuthenticatorSuccess(true);
-      // }
-      // if (accessToken) {
-      //   const formElement = document.getElementById(
-      //     "kc-form-login"
-      //   ) as HTMLFormElement;
-      //   if (!formElement) return;
-      //   formElement
-      //     .querySelector("input[name='email']")
-      //     ?.setAttribute("name", "username");
+      const response = await checkLogin(values, action);
+      const { accessToken, qrCode } = response.data;
+      if (qrCode) {
+        notification.error({ message: msgStr("notRegisterHMAC") });
+        setLoginRequest(values);
+        setQrCode(qrCode);
+        setIsOpenGoogleAuthenticator(true);
+        return;
+      }
+      if (isConfirmForward) {
+        setIsVerified(true);
+        setIsOpenGoogleAuthenticator(false);
+        return setIsOpenGoogleAuthenticatorSuccess(true);
+      }
+      if (accessToken) {
+        const formElement = document.getElementById(
+          "kc-form-login"
+        ) as HTMLFormElement;
+        if (!formElement) return;
+        formElement
+          .querySelector("input[name='email']")
+          ?.setAttribute("name", "username");
 
-      //   formElement.submit();
-      // }
-      const formElement = document.getElementById(
-        "kc-form-login"
-      ) as HTMLFormElement;
-      if (!formElement) return;
-      formElement
-        .querySelector("input[name='email']")
-        ?.setAttribute("name", "username");
-
-      formElement.submit();
+        formElement.submit();
+      }
     } catch (error: any) {
       typeof error == "string" && notification.error({ message: error });
     } finally {
@@ -375,14 +366,17 @@ export default function Login(
               </div>
               <ActionsWrapper>
                 {/* @ts-ignore */}
-                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}
+                <a
+                  href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}
                 >
                   <ForgotPasswordText>
                     {msgStr("forgotPassword")}
                   </ForgotPasswordText>
                 </a>
                 {/* @ts-ignore */}
-                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-hmac`}>
+                <a
+                  href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-hmac`}
+                >
                   <ForgotPasswordText>
                     {msgStr("forgotHMAC")}
                   </ForgotPasswordText>
