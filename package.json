@@ -23,7 +23,7 @@
       "keycloakify-starter-variant-1"
     ],
     "extraThemeProperties": [
-      "REACT_APP_ENDPOINT_URL=http://172.16.13.253:8080",
+      "REACT_APP_ENDPOINT_URL=https://cms-chatbot-be.gemvietnam.com",
       "REACT_APP_AMS_URL=http://172.16.10.106:3335"
     ]
   },
