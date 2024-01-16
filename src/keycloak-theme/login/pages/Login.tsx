@@ -366,16 +366,14 @@ export default function Login(
               </div>
               <ActionsWrapper>
                 {/* @ts-ignore */}
-                <a
-                  href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-password`}
                 >
                   <ForgotPasswordText>
                     {msgStr("forgotPassword")}
                   </ForgotPasswordText>
                 </a>
                 {/* @ts-ignore */}
-                <a
-                  href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-hmac`}
+                <a href={`${kcContext.properties.REACT_APP_AMS_URL}/forgot-hmac`}
                 >
                   <ForgotPasswordText>
                     {msgStr("forgotHMAC")}
