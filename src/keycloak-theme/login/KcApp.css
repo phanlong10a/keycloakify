@@ -11,5 +11,5 @@
 }
 
 .my-root-class body {
-	background: url(./assets/background.jpg) 0% 0% / cover;
+	background: #ececec;
 }

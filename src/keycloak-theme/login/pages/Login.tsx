@@ -16,6 +16,7 @@ import {
   WrapGoogleAuthencatorSuccess,
 } from "./shared/component";
 import { ModalComponent } from "./shared/modal";
+import liveonLogo from "../assets/liveon_logo.png";
 
 export interface LoginRequest {
   email?: string;
@@ -64,7 +65,7 @@ export default function Login(
         kcContext.properties.REACT_APP_ENDPOINT_URL + `/auth/login/${action}`,
         {
           ...values,
-          clientId
+          clientId,
         }
       );
       return data;
@@ -138,31 +139,40 @@ export default function Login(
     }
     setIsLoginButtonDisabled(true);
     try {
-      const response = await checkLogin(values, action);
-      const { accessToken, qrCode } = response.data;
-      if (qrCode) {
-        notification.error({ message: msgStr("notRegisterHMAC") });
-        setLoginRequest(values);
-        setQrCode(qrCode);
-        setIsOpenGoogleAuthenticator(true);
-        return;
-      }
-      if (isConfirmForward) {
-        setIsVerified(true);
-        setIsOpenGoogleAuthenticator(false);
-        return setIsOpenGoogleAuthenticatorSuccess(true);
-      }
-      if (accessToken) {
-        const formElement = document.getElementById(
-          "kc-form-login"
-        ) as HTMLFormElement;
-        if (!formElement) return;
-        formElement
-          .querySelector("input[name='email']")
-          ?.setAttribute("name", "username");
+      // const response = await checkLogin(values, action);
+      // const { accessToken, qrCode } = response.data;
+      // if (qrCode) {
+      //   notification.error({ message: msgStr("notRegisterHMAC") });
+      //   setLoginRequest(values);
+      //   setQrCode(qrCode);
+      //   setIsOpenGoogleAuthenticator(true);
+      //   return;
+      // }
+      // if (isConfirmForward) {
+      //   setIsVerified(true);
+      //   setIsOpenGoogleAuthenticator(false);
+      //   return setIsOpenGoogleAuthenticatorSuccess(true);
+      // }
+      // if (accessToken) {
+      //   const formElement = document.getElementById(
+      //     "kc-form-login"
+      //   ) as HTMLFormElement;
+      //   if (!formElement) return;
+      //   formElement
+      //     .querySelector("input[name='email']")
+      //     ?.setAttribute("name", "username");
 
-        formElement.submit();
-      }
+      //   formElement.submit();
+      // }
+      const formElement = document.getElementById(
+        "kc-form-login"
+      ) as HTMLFormElement;
+      if (!formElement) return;
+      formElement
+        .querySelector("input[name='email']")
+        ?.setAttribute("name", "username");
+
+      formElement.submit();
     } catch (error: any) {
       typeof error == "string" && notification.error({ message: error });
     } finally {
@@ -249,7 +259,9 @@ export default function Login(
               ]
           )}
         >
-          <div className="login-title">{msg("loginTitle")}</div>
+          <div className="login-title">
+            <img src={liveonLogo} alt="Logo login" />
+          </div>
           {realm.password && (
             <Form
               id="kc-form-login"
