@@ -250,9 +250,14 @@ export default function Login(
               ]
           )}
         >
-          <div className="login-title">
-            <img src={liveonLogo} alt="Logo login" />
-          </div>
+          {
+            //@ts-ignore
+            kcContext.properties.REACT_APP_ENVIRONMENT !== "prod" && (
+              <div className="login-title">
+                <img src={liveonLogo} alt="Logo login" />
+              </div>
+            )
+          }
           {realm.password && (
             <Form
               id="kc-form-login"

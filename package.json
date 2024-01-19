@@ -24,7 +24,8 @@
     ],
     "extraThemeProperties": [
       "REACT_APP_ENDPOINT_URL=https://cms-chatbot-be.gemvietnam.com",
-      "REACT_APP_AMS_URL=http://172.16.10.106:3335"
+      "REACT_APP_AMS_URL=http://172.16.10.106:3335",
+      "REACT_APP_ENVIRONMENT=dev"
     ]
   },
   "author": "u/garronej",
